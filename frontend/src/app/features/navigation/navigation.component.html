@@ -1,0 +1,40 @@
+<div *ngIf="isAuthenticated" style="height: 80vh">
+  <mat-toolbar color="primary" style="background-color: #10069f !important">
+    <mat-toolbar-row>
+      <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <span>Store</span>
+      <span class="menu-spacer"></span>
+      <div class="margin-left-menu" fxShow="true" fxHide.lt-md="true">
+        <button mat-button [routerLink]="'/home'">Home</button>
+      </div>
+      <span class="fill-space"></span>
+      Welcome {{ roleType }} User
+      <button style="float: right" mat-button [matMenuTriggerFor]="logoutMenu">
+        ({{ this.loggedInUser }})
+      </button>
+      <mat-menu #logoutMenu="matMenu">
+        <button (click)="logout()" mat-menu-item>Logout</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/home'"> Home </a>
+        <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item
+          >Close</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 88vh">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

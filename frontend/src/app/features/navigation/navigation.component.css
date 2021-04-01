@@ -1,0 +1,9 @@
+.margin-left-menu {
+  margin-left: 10% !important;
+}
+.fill-space {
+  flex: 1 1 auto;
+}
+.mat-drawer-content {
+  overflow-x: hidden !important;
+}
