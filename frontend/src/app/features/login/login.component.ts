@@ -11,13 +11,12 @@ import { AuthGuardService } from 'src/app/shared/authguard/auth-guard.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+  private form: FormGroup;
   private formSubmitAttempt: boolean;
-  isAuthenticated: boolean;
+  private isAuthenticated: boolean;
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthenticationService,
     private router: Router,
     private authGuardService: AuthGuardService
   ) {}

@@ -18,10 +18,12 @@ namespace Store.Api.Extensions
             /* Register Services for Businees Service */
 
             services.AddTransient<IServiceRepository<AppUserModel>, AppUserService>();
+            services.AddTransient<IServiceRepository<EstimationLogsModel>, EstimationLogsService>();
 
             /* Register Services for Data Service */
 
             services.AddTransient<IRepository<AppUser>, AppUserDataService>();
+            services.AddTransient<IRepository<EstimationLogs>, EstimationLogsDataService>();
 
             return services;
         }

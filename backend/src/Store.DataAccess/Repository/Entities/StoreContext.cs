@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
 using Store.DataAccess.Repository.DBConf;
 
@@ -6,8 +8,9 @@ namespace Store.DataAccess.Repository.Entities
 {
     public partial class StoreContext : DbContext
     {
-        IAccessConnectionString _accessConnectionString;
-        ILogger<StoreContext> _log;
+        private readonly IAccessConnectionString _accessConnectionString;
+        private readonly ILogger<StoreContext> _log;
+
         public StoreContext()
         {
         }
@@ -16,7 +19,7 @@ namespace Store.DataAccess.Repository.Entities
             : base(options)
         {
         }
-  
+
         public StoreContext(IAccessConnectionString accessConnectionString, ILogger<StoreContext> log)
         {
             _accessConnectionString = accessConnectionString;
@@ -30,13 +33,8 @@ namespace Store.DataAccess.Repository.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                _log.LogInformation("Database Connection  Started");
-                var database = _accessConnectionString.ComposeDbConnection();
-
-                _log.LogInformation("Database Connection In Progress");
-
-                optionsBuilder.UseSqlServer(@database);
-                _log.LogInformation("Database Connection Established");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=INDIALTP00011;Database=Store;Trusted_Connection=True;");
             }
         }
 
@@ -52,17 +50,19 @@ namespace Store.DataAccess.Repository.Entities
 
                 entity.Property(e => e.Description).HasMaxLength(300);
 
+                entity.Property(e => e.Discount).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<AppUser>(entity =>
             {
                 entity.HasIndex(e => e.EmailId)
-                    .HasName("UQ__AppUser__7ED91ACEDAB87437")
+                    .HasName("UQ__AppUser__7ED91ACE907816B3")
                     .IsUnique();
 
                 entity.HasIndex(e => e.LoginName)
-                    .HasName("UQ__AppUser__DB8464FFC495D375")
+                    .HasName("UQ__AppUser__DB8464FF74FCE30B")
                     .IsUnique();
 
                 entity.Property(e => e.Contact).HasMaxLength(15);
@@ -98,9 +98,11 @@ namespace Store.DataAccess.Repository.Entities
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Discount)
-                    .IsRequired()
-                    .HasMaxLength(300);
+                entity.Property(e => e.Discount).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.PricePerGram).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 

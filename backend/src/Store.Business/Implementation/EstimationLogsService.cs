@@ -35,18 +35,16 @@ namespace Store.Business.Implementation
                 EstimationLogs entity;
                 _log.LogInformation("{0} method of {1} started in Business at :\t{2}", "GetByCustom", "EstimationLogsService", DateTime.UtcNow);
                 MapperConfiguration config1 = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<EstimationLogsModel, EstimationLogs>();
+                    cfg.CreateMap<EstimationLogsModel, EstimationLogs>()
+                    .ForMember(d => d.CreatedDate, o => o.MapFrom(t => DateTime.UtcNow))
+                    .ForMember(d => d.UpdatedDate, o => o.MapFrom(t => DateTime.UtcNow))
+                    .ForMember(d => d.IsActive, o => o.MapFrom(t => true));
                 });
                 IMapper iMapper1 = config1.CreateMapper();
                 entity = iMapper1.Map<EstimationLogsModel, EstimationLogs>(model);
 
                 var result = _EstimationLogsDataService.Insert(entity);
-
-                MapperConfiguration config2 = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<EstimationLogs, EstimationLogsModel>();
-                });
-                IMapper iMapper2 = config2.CreateMapper();
-                model = iMapper1.Map<EstimationLogs,EstimationLogsModel>(result);
+                model.Id = result.Id;
                 return model;
             }
             catch (Exception e)

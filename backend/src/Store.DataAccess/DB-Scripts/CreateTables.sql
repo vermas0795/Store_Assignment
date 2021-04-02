@@ -5,7 +5,7 @@ Create Table [dbo].[AppRole]
 Id bigint Primary key identity(1,1),
 Code nvarchar(100) not null,
 Description nvarchar(300) null,
-Discount int null,
+Discount decimal null,
 CreatedDate datetime not null,
 UpdatedDate datetime null,
 IsActive bit not null
@@ -30,10 +30,10 @@ Create Table [dbo].[EstimationLogs]
 (
 Id bigint Primary key identity(1,1),
 AppUser_Id bigint references [dbo].[AppUser](Id) not null,
-Discount nvarchar(300) not null,
-PricePerGram int not null,
+Discount decimal not null,
+PricePerGram decimal not null,
 Weight decimal not null,
-TotalPrice int not null,
+TotalPrice decimal not null,
 CreatedDate datetime not null,
 UpdatedDate datetime null,
 IsActive bit not null

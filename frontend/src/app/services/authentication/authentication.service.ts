@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServiceEndpoint } from '../service-endpoint';
 import { AppUser } from '../../models/app-user.model';
-import { catchError } from 'rxjs/operators';
 import { HttpErrorHandler } from '../service-error-handler';
 import { Observable } from 'rxjs';
 

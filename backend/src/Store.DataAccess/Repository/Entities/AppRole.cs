@@ -13,7 +13,7 @@ namespace Store.DataAccess.Repository.Entities
         public long Id { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
-        public int? Discount { get; set; }
+        public decimal? Discount { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public bool IsActive { get; set; }

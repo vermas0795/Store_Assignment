@@ -6,9 +6,11 @@ import { HomeComponent } from './home.component';
 import { MaterialModule } from '../../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PrintDetailComponent } from './print-detail/print-detail.component';
+import { HomeService } from 'src/app/services/home/home.service';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, PrintDetailComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -17,6 +19,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     NgxSpinnerModule,
   ],
-  providers: [],
+  exports:[],
+  providers: [HomeService],
+  entryComponents:[PrintDetailComponent]
 })
 export class HomeModule {}

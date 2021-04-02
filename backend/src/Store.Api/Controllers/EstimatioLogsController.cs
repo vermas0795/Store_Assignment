@@ -19,10 +19,10 @@ namespace Store.Api.Controllers
     [Route("api/entity/[controller]")]
     public class EstimationLogsController : ControllerBase
     {
-        private IServiceRepository<AppUserModel> _service;
+        private IServiceRepository<EstimationLogsModel> _service;
         private readonly ILogger<EstimationLogsController> _log;
         private readonly IConfiguration Configuration;
-        public EstimationLogsController(IServiceRepository<AppUserModel> service,
+        public EstimationLogsController(IServiceRepository<EstimationLogsModel> service,
             ILogger<EstimationLogsController> log
             , IConfiguration configuration)
         {
@@ -44,7 +44,7 @@ namespace Store.Api.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult EstimationLogs([FromBody] AppUserModel model)
+        public IActionResult EstimationLogs([FromBody] EstimationLogsModel model)
         {
             try
             {

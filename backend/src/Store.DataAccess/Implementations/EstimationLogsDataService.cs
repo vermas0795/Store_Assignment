@@ -35,6 +35,7 @@ namespace Store.DataAccess.Implementations
                 using (var context = new StoreContext(_connection, _logContext))
                 {
                     context.EstimationLogs.Add(entity);
+                    context.SaveChanges();
                 }
                 return entity;
             }

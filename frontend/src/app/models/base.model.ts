@@ -1,6 +1,6 @@
 export class BaseModel {
-  Id: number;
-  CreatedDate: Date;
-  UpdatedDate?: Date;
-  IsActive?: boolean;
+  id: number;
+  createdDate: Date;
+  updatedDate?: Date;
+  isActive?: boolean;
 }

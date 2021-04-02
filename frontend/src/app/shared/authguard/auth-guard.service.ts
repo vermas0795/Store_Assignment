@@ -34,7 +34,7 @@ export class AuthGuardService {
        {
         localStorage.setItem('store-app-user',JSON.stringify(data));
         this.loggedIn.next(true);
-        this.notification.showSuccess("Login Successfully!")
+        this.notification.showSuccess("Login Successful!")
         this.router.navigate(['/home']);
        }
        else{
