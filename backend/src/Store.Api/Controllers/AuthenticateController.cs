@@ -62,7 +62,7 @@ namespace Store.Api.Controllers
             catch (Exception e)
             {
                 _log.LogError("{0} occurred in {1} method of {2} in Api at :\t{3}", e, "AuthenticateUser", "AuthenticateUserController", DateTime.UtcNow);
-                throw e;
+                return NotFound();
             }
             finally
             {
@@ -73,7 +73,7 @@ namespace Store.Api.Controllers
         public AppUserModel CreateToken(AppUserModel user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Authentication").Get<AuthenticationConfiguration>().JWTSecret);
+            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Authentication:JWTSecret").Value);
             var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.UserName.ToString()),

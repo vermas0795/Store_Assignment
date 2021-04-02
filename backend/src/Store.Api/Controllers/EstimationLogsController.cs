@@ -21,14 +21,12 @@ namespace Store.Api.Controllers
     {
         private IServiceRepository<EstimationLogsModel> _service;
         private readonly ILogger<EstimationLogsController> _log;
-        private readonly IConfiguration Configuration;
         public EstimationLogsController(IServiceRepository<EstimationLogsModel> service,
             ILogger<EstimationLogsController> log
-            , IConfiguration configuration)
+            )
         {
             _service = service;
             _log = log;
-            Configuration = configuration;
         }
 
         /// <summary>
@@ -39,7 +37,7 @@ namespace Store.Api.Controllers
         /// <returns>Returns 201 Created success</returns>
         /// <returns>Returns 400 Bad Request error</returns>
         /// <returns>Returns 500 Internal Server Error </returns>
-        [AllowAnonymous]
+        [Authorize]
         [HttpPost()]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -64,7 +62,7 @@ namespace Store.Api.Controllers
             catch (Exception e)
             {
                 _log.LogError("{0} occurred in {1} method of {2} in Api at :\t{3}", e, "EstimationLogs", "EstimationLogsController", DateTime.UtcNow);
-                throw e;
+                return NotFound();
             }
             finally
             {
