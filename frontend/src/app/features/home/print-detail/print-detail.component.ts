@@ -5,16 +5,15 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NotificationModalComponent } from 'src/app/shared/component/notification-modal/notification-modal.component';
 import { HomeService } from 'src/app/services/home/home.service';
-import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EstimationLogs } from 'src/app/models/estimation-logs.model';
 
 @Component({
   selector: 'app-print-detail',
   templateUrl: './print-detail.component.html',
-  styleUrls: ['./print-detail.component.css']
+  styleUrls: ['./print-detail.component.css'],
 })
 export class PrintDetailComponent implements OnInit {
-
   Form: FormGroup;
   isPrivileged = false;
 
@@ -24,7 +23,7 @@ export class PrintDetailComponent implements OnInit {
     private notification: NotificationModalComponent,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<PrintDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public Data: any,
+    @Inject(MAT_DIALOG_DATA) public Data: any
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class PrintDetailComponent implements OnInit {
     this.Form.get('DiscountCtrl').setValue(this.Data.Estimation.discount);
     this.Form.get('PriceCtrl').setValue(this.Data.Estimation.pricePerGram);
     this.Form.get('WeightCtrl').setValue(this.Data.Estimation.weight);
-    this.isPrivileged = this.Data.userType == 'Privileged' ? true: false
+    this.isPrivileged = this.Data.userType == 'Privileged' ? true : false;
     this.spinner.hide();
   }
 
@@ -47,5 +46,4 @@ export class PrintDetailComponent implements OnInit {
       TotalPriceCtrl: [''],
     });
   }
-
 }

@@ -10,17 +10,22 @@
   </h2>
 </div>
 <form [formGroup]="Form">
-<mat-grid-list Id="estimation" cols="2" rowHeight="100px">
-  <ngx-spinner
-    bdColor="rgba(51, 51, 51, 0.8)"
-    size="large"
-    color="#fff"
-    type="ball-clip-rotate"
-  ></ngx-spinner>
+  <mat-grid-list Id="estimation" cols="2" rowHeight="100px">
+    <ngx-spinner
+      bdColor="rgba(51, 51, 51, 0.8)"
+      size="large"
+      color="#fff"
+      type="ball-clip-rotate"
+    ></ngx-spinner>
     <mat-grid-tile>
       <mat-form-field appearance="fill">
         <mat-label>Gold Price (Per Gram)</mat-label>
-        <input type="number" matInput placeholder="Enter Price" formControlName="PriceCtrl" />
+        <input
+          type="number"
+          matInput
+          placeholder="Enter Price"
+          formControlName="PriceCtrl"
+        />
       </mat-form-field>
     </mat-grid-tile>
 
@@ -28,7 +33,8 @@
       <mat-form-field appearance="fill">
         <mat-label>Weight (In Gram)</mat-label>
         <input
-          matInput type="number"
+          matInput
+          type="number"
           placeholder="Enter Weight"
           formControlName="WeightCtrl"
         />
@@ -46,30 +52,25 @@
       <mat-card-title>Total Price : {{ estimation.totalPrice }}</mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
     </mat-grid-tile>
-    
-</mat-grid-list>
-<!-- <mat-grid-list cols="1" rowHeight="100px">
-  <mat-grid-tile >
-    <mat-card class="my-card">
-      <mat-card-header>
-        <mat-card-title>Total Price</mat-card-title>
-        <mat-card-subtitle>{{ estimation.totalPrice }}</mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list> -->
+  </mat-grid-list>
 </form>
 <div class="margin_top" align="center">
   <button
-          mat-raised-button
-          color="primary"
-          (click)="onSubmit()"
-          [disabled]="!Form.valid"
-        >
-          Calculate
-        </button>
-        <button class="margin_left" mat-raised-button (click)="reset()">Cancel</button>
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="!Form.valid"
+  >
+    Calculate
+  </button>
+  <button
+    class="margin_left"
+    mat-raised-button
+    [disabled]="!Form.valid"
+    (click)="reset()"
+  >
+    Cancel
+  </button>
 </div>
 <div class="margin_top" align="center">
   <button
@@ -87,7 +88,7 @@
     [disabled]="!isCalculated"
     class="margin_left"
   >
-  Print to file
+    Print to file
   </button>
   <button
     mat-raised-button
@@ -96,6 +97,6 @@
     [disabled]="!isCalculated"
     class="margin_left"
   >
-  Print to paper
+    Print to paper
   </button>
 </div>
