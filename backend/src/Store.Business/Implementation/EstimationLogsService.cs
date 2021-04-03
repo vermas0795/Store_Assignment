@@ -15,7 +15,6 @@ namespace Store.Business.Implementation
         /// <summary>
         /// EstimationLogs Business Service constructor
         /// </summary>
-        /// <param name="connection">Connection String</param>
         /// <param name="log">Logger For Service</param>
         /// <param name="EstimationLogsDataService">Logger For DataService</param>
         public EstimationLogsService(IRepository<EstimationLogs> EstimationLogsDataService, ILogger<EstimationLogsService> log)
@@ -24,7 +23,7 @@ namespace Store.Business.Implementation
             this._EstimationLogsDataService = EstimationLogsDataService;
         }
         /// <summary>
-        /// Function to check EstimationLogs 
+        /// Function to Insert EstimationLogs 
         /// </summary>
         /// <param name="model">EstimationLogs input</param>
         /// <returns>Details of EstimationLogs</returns>
@@ -33,7 +32,7 @@ namespace Store.Business.Implementation
             try
             {
                 EstimationLogs entity;
-                _log.LogInformation("{0} method of {1} started in Business at :\t{2}", "GetByCustom", "EstimationLogsService", DateTime.UtcNow);
+                _log.LogInformation("{0} method of {1} started in Business at :\t{2}", "Insert", "EstimationLogsService", DateTime.UtcNow);
                 MapperConfiguration config1 = new MapperConfiguration(cfg => {
                     cfg.CreateMap<EstimationLogsModel, EstimationLogs>()
                     .ForMember(d => d.CreatedDate, o => o.MapFrom(t => DateTime.UtcNow))
@@ -49,12 +48,12 @@ namespace Store.Business.Implementation
             }
             catch (Exception e)
             {
-                _log.LogError("{0} occurred in {1} method of {2} in Business at :\t{3}", e, "GetByCustom", "EstimationLogsService", DateTime.UtcNow);
+                _log.LogError("{0} occurred in {1} method of {2} in Business at :\t{3}", e, "Insert", "EstimationLogsService", DateTime.UtcNow);
                 throw e;
             }
             finally
             {
-                _log.LogInformation("{0} method of {1} ended in Business at :\t{2}", "GetByCustom", "EstimationLogsService", DateTime.UtcNow);
+                _log.LogInformation("{0} method of {1} ended in Business at :\t{2}", "Insert", "EstimationLogsService", DateTime.UtcNow);
             }
         }
     }

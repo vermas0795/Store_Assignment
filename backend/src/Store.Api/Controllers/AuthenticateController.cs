@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Store.Api.Configuration;
 using Store.Business.Interfaces;
 using Store.Core.ViewEntity;
 using System;
@@ -36,8 +35,8 @@ namespace Store.Api.Controllers
         /// </summary>
         /// <param name="userParam">JSON App Details</param>
         /// <returns>Returns the new Entity document</returns>
-        /// <returns>Returns 201 Created success</returns>
-        /// <returns>Returns 400 Bad Request error</returns>
+        /// <returns>Returns 200 Fetch success</returns>
+        /// <returns>Returns 401 Unauthorized error</returns>
         /// <returns>Returns 500 Internal Server Error </returns>
         [AllowAnonymous]
         [HttpPost()]

@@ -16,15 +16,6 @@ namespace Store.Business.Interfaces
         {
             throw new NotImplementedException();
         }
-
-        public virtual IEnumerable<T> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-        public virtual Task<IEnumerable<T>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
         
         public virtual T Insert(T entity)
         {
@@ -56,6 +47,14 @@ namespace Store.Business.Interfaces
             throw new NotImplementedException();
         }
 
+        public virtual IEnumerable<T> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual Task<IEnumerable<T>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
         public virtual T GetByCustom(string json)
         {
             throw new NotImplementedException();

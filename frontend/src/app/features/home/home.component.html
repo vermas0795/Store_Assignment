@@ -6,7 +6,7 @@
       background-color: aliceblue !important;
     "
   >
-    Welcome to Store App
+    Welcome to Jewellery Store App
   </h2>
 </div>
 <form [formGroup]="Form">
@@ -35,7 +35,7 @@
       </mat-form-field>
     </mat-grid-tile>
 
-    <mat-grid-tile *ngIf="">
+    <mat-grid-tile *ngIf="isPrivileged">
       <mat-form-field appearance="fill">
         <mat-label>Discount (%)</mat-label>
         <input matInput placeholder="Discount" formControlName="DiscountCtrl" />

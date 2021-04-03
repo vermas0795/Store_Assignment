@@ -17,15 +17,6 @@ namespace Store.DataAccess
             throw new NotImplementedException();
         }
 
-        public virtual IEnumerable<T> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-        public virtual Task<IEnumerable<T>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual T Insert(T entity)
         {
             throw new NotImplementedException();
@@ -56,6 +47,14 @@ namespace Store.DataAccess
             throw new NotImplementedException();
         }
 
+        public virtual IEnumerable<T> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+        public virtual Task<IEnumerable<T>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
         public virtual T GetByCustom(string json)
         {
             throw new NotImplementedException();
@@ -68,17 +67,14 @@ namespace Store.DataAccess
         {
             throw new NotImplementedException();
         }
-
         public virtual T GetById(long? id)
         {
             throw new NotImplementedException();
         }
-
         public virtual T GetByName(string name)
         {
             throw new NotImplementedException();
         }
-
         public virtual IEnumerable<T> SearchFor(Expression<Func<T, bool>> predicate)
         {
             throw new NotImplementedException();

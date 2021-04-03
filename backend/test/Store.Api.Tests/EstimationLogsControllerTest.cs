@@ -21,8 +21,9 @@ namespace Store.Api.Tests
             _log = Mock.Of<ILogger<EstimationLogsControllerTest>>();
             _servicelog = Mock.Of<ILogger<EstimationLogsController>>();
         }
+
         [TestMethod]
-        public void PositiveTest()
+        public void AddEstimationLogsTest()
         {
             //ARRANGE
             var mock = new Mock<IServiceRepository<EstimationLogsModel>>();
@@ -30,7 +31,7 @@ namespace Store.Api.Tests
             
             //ACT
             var EstimationLogsController = new EstimationLogsController(mock.Object, _servicelog);
-            var result = EstimationLogsController.EstimationLogs(ViewModel.EstimationLogsModel);
+            var result = EstimationLogsController.AddEstimationLogs(ViewModel.EstimationLogsModel);
             var data = result as OkObjectResult;
 
             //ASSERT
@@ -39,8 +40,9 @@ namespace Store.Api.Tests
             Assert.IsInstanceOfType(data.Value, typeof(EstimationLogsModel));
 
         }
+
         [TestMethod]
-        public void NegativeTest()
+        public void AddEstimationLogsNotFoundTest()
         {
             //ARRANGE
             EstimationLogsModel est = null;
@@ -49,7 +51,7 @@ namespace Store.Api.Tests
 
             //ACT
             var EstimationLogsController = new EstimationLogsController(mock.Object, _servicelog);
-            var result = EstimationLogsController.EstimationLogs(ViewModel.EstimationLogsModel);
+            var result = EstimationLogsController.AddEstimationLogs(ViewModel.EstimationLogsModel);
             var data = result as NotFoundResult;
 
             //ASSERT

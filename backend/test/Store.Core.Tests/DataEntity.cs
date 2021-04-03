@@ -12,7 +12,8 @@ namespace Store.Core.Tests
             UserName = "Test UserName",
             LoginName = "Test LoginName",
             EmailId = "Test Email",
-            Role = new AppRole() { Description = "Test Role"},
+            Password= "Test Password",
+            Role = new AppRole() { Description = "Test Role", Discount=0.0m},
             CreatedDate = DateTime.UtcNow,
             UpdatedDate = DateTime.UtcNow,
             IsActive = true

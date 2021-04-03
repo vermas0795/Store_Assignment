@@ -33,8 +33,11 @@ namespace Store.DataAccess.Repository.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=INDIALTP00011;Database=Store;Trusted_Connection=True;");
+                _log.LogInformation("Connection string process started");
+
+                var database = _accessConnectionString.ComposeDbConnection();
+
+                optionsBuilder.UseSqlServer(database);
             }
         }
 

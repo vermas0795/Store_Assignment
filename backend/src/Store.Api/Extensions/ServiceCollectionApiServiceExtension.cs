@@ -24,7 +24,7 @@ namespace Store.Api.Extensions
 
             services.AddTransient<IRepository<AppUser>, AppUserDataService>();
             services.AddTransient<IRepository<EstimationLogs>, EstimationLogsDataService>();
-
+            
             return services;
         }
     }

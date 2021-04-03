@@ -11,20 +11,19 @@ using Serilog;
 using System;
 using System.IO;
 using System.Reflection;
-using Store.Api.Configuration;
+using Store.DataAccess.Repository.Entities;
 
 namespace Store.Api
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public string CorsPolicy = "_CorsPolicy";
+
         /// <summary>
         /// Startup Constructor
         /// </summary>
         /// <param name="configuration">Configuartion</param>
-        /// <param name="logger">Logger</param>
-        private readonly ILogger<Startup> _logger;
-        public IConfiguration Configuration { get; }
-        readonly string CorsPolicy = "_CorsPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,14 +36,8 @@ namespace Store.Api
             // Add Dependency Injection Service Extension
             services.AddApiServices();
 
-            //// Get JWT configuration
-            var authConfig = Configuration.GetSection("Authentication").Get<AuthenticationConfiguration>();
-            if (authConfig == null)
-            {
-                throw new ConfigurationNotFoundException("Missing configuration for 'Authentication'.");
-            }
             //JWT Auth Conf
-            services.AddAuth(authConfig);
+            services.AddAuth(Configuration);
 
             //Adding Swagger
             services.AddSwaggerGen(c =>
@@ -58,7 +51,6 @@ namespace Store.Api
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 //... and tell Swagger to use those XML comments.
                 c.IncludeXmlComments(xmlPath);
-
             });
 
             //Add Cors
@@ -71,8 +63,8 @@ namespace Store.Api
             services.AddControllers();
             services.Configure<ConnectionString>(Configuration.GetSection("ConnectionString"));
             services.AddTransient<IAccessConnectionString, AccessConnectionString>();
-            services.AddLogging(loggingBuilder =>
-            loggingBuilder.AddSerilog(dispose: true));
+            services.AddTransient<StoreContext>();
+            services.AddLogging(loggingBuilder =>  loggingBuilder.AddSerilog(dispose: true));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

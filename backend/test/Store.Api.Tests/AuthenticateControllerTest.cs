@@ -22,8 +22,9 @@ namespace Store.Api.Tests
             _log = Mock.Of<ILogger<AuthenticateControllerTest>>();
             _servicelog = Mock.Of<ILogger<AuthenticateController>>();
         }
+
         [TestMethod]
-        public void PositiveTest()
+        public void AuthenticateUserSuccessTest()
         {
             //ARRANGE
             var mock = new Mock<IServiceRepository<AppUserModel>>();
@@ -44,26 +45,9 @@ namespace Store.Api.Tests
             Assert.IsInstanceOfType(data.Value, typeof(AppUserModel));
 
         }
-        [TestMethod]
-        public void ErrorTest()
-        {
-            //ARRANGE
-            var mock = new Mock<IServiceRepository<AppUserModel>>();
-            mock.Setup(t => t.GetByCustom(It.IsAny<string>())).Returns(ViewModel.AppUserModel);
-            Mock<IConfigurationSection> mockSection = new Mock<IConfigurationSection>();
-            Mock<IConfiguration> mockConfig = new Mock<IConfiguration>();
-            mockConfig.Setup(x => x.GetSection(It.IsAny<string>())).Returns(mockSection.Object);
 
-            //ACT
-            var AuthenticateController = new AuthenticateController(mock.Object, _servicelog, mockConfig.Object);
-            var result = AuthenticateController.AuthenticateUser(ViewModel.AppUserModel);
-            var data = result as NotFoundResult;
-
-            //ASSERT
-            Assert.AreEqual(StatusCodes.Status404NotFound, data.StatusCode);
-        }
         [TestMethod]
-        public void NegativeTest()
+        public void AuthenticateUserUnAuthorizedTest()
         {
             //ARRANGE
             var mock = new Mock<IServiceRepository<AppUserModel>>();
@@ -82,5 +66,23 @@ namespace Store.Api.Tests
             Assert.AreEqual(StatusCodes.Status401Unauthorized, data.StatusCode);
         }
 
+        [TestMethod]
+        public void AuthenticateUserNotFoundTest()
+        {
+            //ARRANGE
+            var mock = new Mock<IServiceRepository<AppUserModel>>();
+            mock.Setup(t => t.GetByCustom(It.IsAny<string>())).Returns(ViewModel.AppUserModel);
+            Mock<IConfigurationSection> mockSection = new Mock<IConfigurationSection>();
+            Mock<IConfiguration> mockConfig = new Mock<IConfiguration>();
+            mockConfig.Setup(x => x.GetSection(It.IsAny<string>())).Returns(mockSection.Object);
+
+            //ACT
+            var AuthenticateController = new AuthenticateController(mock.Object, _servicelog, mockConfig.Object);
+            var result = AuthenticateController.AuthenticateUser(ViewModel.AppUserModel);
+            var data = result as NotFoundResult;
+
+            //ASSERT
+            Assert.AreEqual(StatusCodes.Status404NotFound, data.StatusCode);
+        }
     }
 }

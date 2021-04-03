@@ -11,18 +11,17 @@ namespace Store.DataAccess.Implementations
     public class AppUserDataService : DBRepositoryBase<AppUser>
     {
         private readonly ILogger<AppUserDataService> _log;
-        private readonly IAccessConnectionString _connection;
-        private readonly ILogger<StoreContext> _logContext;
+        private StoreContext _context;
         /// <summary>
         /// AppUser Data Service constructor
         /// </summary>
         /// <param name="log">Logger For Service</param>
-        /// <param name="logContext">Logger For Context</param>
-        public AppUserDataService(IAccessConnectionString connection, ILogger<AppUserDataService> log, ILogger<StoreContext> logContext)
-        {
-            this._logContext = logContext;
+        /// <param name="context">Context</param>
+        public AppUserDataService(ILogger<AppUserDataService> log,StoreContext context)
+        {            
             this._log = log;
-            this._connection = connection;
+            this._context = context;
+
         }
         /// <summary>
         /// Function to Authenticate  AppUser
@@ -34,13 +33,13 @@ namespace Store.DataAccess.Implementations
             try
             {
                 _log.LogInformation("{0} method of {1} started in DataAccess at :\t{2}", "GetByCustom", "AppUserDataService", DateTime.UtcNow);
-                using (var context = new StoreContext(_connection, _logContext))
+                using (_context)
                 {
                     if (json != null)
                     {
                         string loginName = json.Split("#$#")[0];
                         string password = Base64EncDec.EncodePasswordToBase64(json.Split("#$#")[1]);
-                        result = context.AppUser.Where(x=> x.IsActive && x.LoginName.ToLower() == loginName.ToLower()
+                        result = _context.AppUser.Where(x=> x.IsActive && x.LoginName.ToLower() == loginName.ToLower()
                                 && x.Password == password).Include(x=>x.Role).FirstOrDefault();
                     }
                 }

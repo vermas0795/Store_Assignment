@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Server.IISIntegration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Store.Api.Configuration;
 using System.Text;
 
 namespace Store.Api.Extensions
@@ -13,9 +11,9 @@ namespace Store.Api.Extensions
     /// </summary>
     public static class ServiceCollectionAuthExtensions
     {
-        public static IServiceCollection AddAuth(this IServiceCollection services, AuthenticationConfiguration auth)
+        public static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration auth)
         {
-            var key = Encoding.ASCII.GetBytes(auth.JWTSecret);
+            var key = Encoding.ASCII.GetBytes(auth.GetSection("Authentication:JWTSecret").Value);
             services.AddAuthentication(sharedOptions =>
             {
                 sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;

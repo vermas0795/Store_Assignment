@@ -15,7 +15,6 @@ namespace Store.Business.Implementation
         /// <summary>
         /// AppUser Business Service constructor
         /// </summary>
-        /// <param name="connection">Connection String</param>
         /// <param name="log">Logger For Service</param>
         /// <param name="AppUserDataService">Logger For DataService</param>
         public AppUserService(IRepository<AppUser> AppUserDataService, ILogger<AppUserService> log)

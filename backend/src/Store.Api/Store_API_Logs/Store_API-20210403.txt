@@ -1,0 +1,605 @@
+2021-04-03 10:01:18.536 +05:30 [INF] Application Starting.
+2021-04-03 10:01:21.024 +05:30 [FTL] The Application failed to start.
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Store.Business.Interfaces.IServiceRepository`1[Store.Core.ViewEntity.AppUserModel] Lifetime: Transient ImplementationType: Store.Business.Implementation.AppUserService': Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.) (Error while validating the service descriptor 'ServiceType: Store.DataAccess.Repository.IRepository`1[Store.DataAccess.Repository.Entities.AppUser] Lifetime: Transient ImplementationType: Store.DataAccess.Implementations.AppUserDataService': Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Store.Business.Interfaces.IServiceRepository`1[Store.Core.ViewEntity.AppUserModel] Lifetime: Transient ImplementationType: Store.Business.Implementation.AppUserService': Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at Store.Api.Program.Main(String[] args) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Program.cs:line 21
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Store.DataAccess.Repository.IRepository`1[Store.DataAccess.Repository.Entities.AppUser] Lifetime: Transient ImplementationType: Store.DataAccess.Implementations.AppUserDataService': Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'Store.DataAccess.Repository.Entities.StoreContext' while attempting to activate 'Store.DataAccess.Implementations.AppUserDataService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-04-03 10:02:23.749 +05:30 [INF] Application Starting.
+2021-04-03 10:02:25.107 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 10:02:25.607 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 10:02:25.607 +05:30 [INF] Hosting environment: Development
+2021-04-03 10:02:25.607 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 10:02:25.711 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 10:02:26.106 +05:30 [INF] Request finished in 400.4162ms 200 text/html;charset=utf-8
+2021-04-03 10:02:26.186 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 10:02:26.186 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 10:02:26.187 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 10:02:26.338 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 10:02:26.342 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 10:02:26.350 +05:30 [INF] Request finished in 164.7683ms 200 application/javascript
+2021-04-03 10:02:26.351 +05:30 [INF] Request finished in 163.5631ms 200 text/css
+2021-04-03 10:02:26.357 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 10:02:26.358 +05:30 [INF] Request finished in 171.129ms 200 application/javascript
+2021-04-03 10:02:27.152 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 10:02:27.400 +05:30 [INF] Request finished in 248.1213ms 200 application/json;charset=utf-8
+2021-04-03 10:02:59.644 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:02:59.683 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:02:59.683 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:02:59.686 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:02:59.736 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:02:59.881 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:32:59.8810000Z"
+2021-04-03 10:03:03.650 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:33:03.6180000Z"
+2021-04-03 10:03:06.717 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:33:06.6950000Z"
+2021-04-03 10:03:10.022 +05:30 [INF] Connection string process started
+2021-04-03 10:03:45.262 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:33:45.2620000Z"
+2021-04-03 10:03:45.432 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:33:45.4320000Z"
+2021-04-03 10:03:45.677 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:33:45.6770000Z"
+2021-04-03 10:03:45.681 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 10:03:45.709 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 45963.8064ms
+2021-04-03 10:03:45.709 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:03:45.710 +05:30 [INF] Request finished in 46065.2555ms 200 application/json; charset=utf-8
+2021-04-03 10:03:49.169 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:03:49.173 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:03:49.174 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:03:49.174 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:03:49.175 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:04:01.825 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:34:01.8250000Z"
+2021-04-03 10:04:03.202 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:34:03.2020000Z"
+2021-04-03 10:04:03.202 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:34:03.2020000Z"
+2021-04-03 10:04:03.328 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_ChangeTracker()
+   at Microsoft.EntityFrameworkCore.Query.CompiledQueryCacheKeyGenerator.GenerateCacheKeyCore(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.RelationalCompiledQueryCacheKeyGenerator.GenerateCacheKeyCore(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerCompiledQueryCacheKeyGenerator.GenerateCacheKey(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at Store.DataAccess.Implementations.AppUserDataService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\AppUserDataService.cs:line 48 occurred in GetByCustom method of AppUserDataService in DataAcess at :	"2021-04-03T04:34:03.2620000Z"
+2021-04-03 10:04:03.366 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:34:03.3660000Z"
+2021-04-03 10:04:03.368 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.DataAccess.Implementations.AppUserDataService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\AppUserDataService.cs:line 57
+   at Store.Business.Implementation.AppUserService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\AppUserService.cs:line 37 occurred in GetByCustom method of AppUserService in Business at :	"2021-04-03T04:34:03.3660000Z"
+2021-04-03 10:04:03.405 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:34:03.4050000Z"
+2021-04-03 10:04:03.408 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.Business.Implementation.AppUserService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\AppUserService.cs:line 50
+   at Store.Api.Controllers.AuthenticateController.AuthenticateUser(AppUserModel userParam) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Controllers\AuthenticateController.cs:line 53 occurred in AuthenticateUser method of AuthenticateUserController in Api at :	"2021-04-03T04:34:03.4050000Z"
+2021-04-03 10:04:03.409 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:34:03.4090000Z"
+2021-04-03 10:04:03.409 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2021-04-03 10:04:03.411 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 14235.6974ms
+2021-04-03 10:04:03.412 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:04:03.412 +05:30 [INF] Request finished in 14242.6057ms 404 application/problem+json; charset=utf-8
+2021-04-03 10:04:13.277 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:04:13.279 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:04:13.279 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:04:13.280 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:04:13.281 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:04:29.642 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:34:29.6410000Z"
+2021-04-03 10:04:30.366 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:34:30.3660000Z"
+2021-04-03 10:04:30.366 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:34:30.3660000Z"
+2021-04-03 10:04:30.420 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_ChangeTracker()
+   at Microsoft.EntityFrameworkCore.Query.CompiledQueryCacheKeyGenerator.GenerateCacheKeyCore(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.RelationalCompiledQueryCacheKeyGenerator.GenerateCacheKeyCore(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.SqlServer.Query.Internal.SqlServerCompiledQueryCacheKeyGenerator.GenerateCacheKey(Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at Store.DataAccess.Implementations.AppUserDataService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\AppUserDataService.cs:line 48 occurred in GetByCustom method of AppUserDataService in DataAcess at :	"2021-04-03T04:34:30.4180000Z"
+2021-04-03 10:04:30.464 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:34:30.4640000Z"
+2021-04-03 10:04:30.465 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.DataAccess.Implementations.AppUserDataService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\AppUserDataService.cs:line 57
+   at Store.Business.Implementation.AppUserService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\AppUserService.cs:line 37 occurred in GetByCustom method of AppUserService in Business at :	"2021-04-03T04:34:30.4650000Z"
+2021-04-03 10:04:30.518 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:34:30.5180000Z"
+2021-04-03 10:04:30.519 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.Business.Implementation.AppUserService.GetByCustom(String json) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\AppUserService.cs:line 50
+   at Store.Api.Controllers.AuthenticateController.AuthenticateUser(AppUserModel userParam) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Controllers\AuthenticateController.cs:line 53 occurred in AuthenticateUser method of AuthenticateUserController in Api at :	"2021-04-03T04:34:30.5180000Z"
+2021-04-03 10:04:30.519 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:34:30.5190000Z"
+2021-04-03 10:04:30.520 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2021-04-03 10:04:30.521 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 17239.1631ms
+2021-04-03 10:04:30.522 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:04:30.522 +05:30 [INF] Request finished in 17243.9505ms 404 application/problem+json; charset=utf-8
+2021-04-03 10:04:49.518 +05:30 [INF] Application Starting.
+2021-04-03 10:04:51.237 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 10:04:51.575 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 10:04:51.576 +05:30 [INF] Hosting environment: Development
+2021-04-03 10:04:51.576 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 10:04:51.642 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 10:04:51.878 +05:30 [INF] Request finished in 238.247ms 200 text/html;charset=utf-8
+2021-04-03 10:04:51.968 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 10:04:52.009 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 10:04:52.009 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 10:04:52.099 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 10:04:52.099 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 10:04:52.101 +05:30 [INF] Request finished in 92.0387ms 200 application/javascript
+2021-04-03 10:04:52.101 +05:30 [INF] Request finished in 133.9722ms 200 text/css
+2021-04-03 10:04:52.109 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 10:04:52.109 +05:30 [INF] Request finished in 100.9174ms 200 application/javascript
+2021-04-03 10:04:52.784 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 10:04:52.919 +05:30 [INF] Request finished in 135.7846ms 200 application/json;charset=utf-8
+2021-04-03 10:05:13.183 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:05:13.221 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:05:13.222 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:05:13.224 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:05:13.270 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:05:17.864 +05:30 [INF] Connection string process started
+2021-04-03 10:05:42.503 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:35:42.4690000Z"
+2021-04-03 10:05:50.419 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:35:50.3850000Z"
+2021-04-03 10:05:52.941 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:35:52.9190000Z"
+2021-04-03 10:06:03.774 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:36:03.7740000Z"
+2021-04-03 10:06:03.936 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:36:03.9360000Z"
+2021-04-03 10:06:04.101 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:36:04.1010000Z"
+2021-04-03 10:06:04.104 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 10:06:04.117 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 50838.2964ms
+2021-04-03 10:06:04.117 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:06:04.117 +05:30 [INF] Request finished in 50937.0302ms 200 application/json; charset=utf-8
+2021-04-03 10:06:30.485 +05:30 [INF] Application Starting.
+2021-04-03 10:06:31.898 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 10:06:32.225 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 10:06:32.226 +05:30 [INF] Hosting environment: Development
+2021-04-03 10:06:32.226 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 10:06:32.316 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 10:06:32.582 +05:30 [INF] Request finished in 272.1088ms 200 text/html;charset=utf-8
+2021-04-03 10:06:32.672 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 10:06:32.672 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 10:06:32.674 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 10:06:32.788 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 10:06:32.788 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 10:06:32.788 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 10:06:32.795 +05:30 [INF] Request finished in 121.6887ms 200 application/javascript
+2021-04-03 10:06:32.795 +05:30 [INF] Request finished in 123.0482ms 200 application/javascript
+2021-04-03 10:06:32.795 +05:30 [INF] Request finished in 123.056ms 200 text/css
+2021-04-03 10:06:33.310 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 10:06:33.496 +05:30 [INF] Request finished in 185.9154ms 200 application/json;charset=utf-8
+2021-04-03 10:06:51.200 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:06:51.257 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:06:51.258 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:06:51.260 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:06:51.306 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:06:51.426 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:36:51.4260000Z"
+2021-04-03 10:06:51.440 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:36:51.4400000Z"
+2021-04-03 10:06:51.451 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:36:51.4510000Z"
+2021-04-03 10:06:51.467 +05:30 [INF] Connection string process started
+2021-04-03 10:06:53.403 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:36:53.4030000Z"
+2021-04-03 10:06:53.576 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:36:53.5760000Z"
+2021-04-03 10:06:53.753 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:36:53.7530000Z"
+2021-04-03 10:06:53.757 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 10:06:53.770 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 2457.5081ms
+2021-04-03 10:06:53.771 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:06:53.771 +05:30 [INF] Request finished in 2573.9524ms 200 application/json; charset=utf-8
+2021-04-03 10:11:10.146 +05:30 [INF] Application Starting.
+2021-04-03 10:11:12.262 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 10:11:12.643 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 10:11:12.643 +05:30 [INF] Hosting environment: Development
+2021-04-03 10:11:12.643 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 10:11:12.800 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 10:11:13.218 +05:30 [INF] Request finished in 425.8099ms 200 text/html;charset=utf-8
+2021-04-03 10:11:13.300 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 10:11:13.338 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 10:11:13.364 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 10:11:13.455 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 10:11:13.455 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 10:11:13.455 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 10:11:13.462 +05:30 [INF] Request finished in 98.1984ms 200 application/javascript
+2021-04-03 10:11:13.462 +05:30 [INF] Request finished in 162.9453ms 200 text/css
+2021-04-03 10:11:13.462 +05:30 [INF] Request finished in 124.2374ms 200 application/javascript
+2021-04-03 10:11:13.771 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 10:11:14.006 +05:30 [INF] Request finished in 234.7765ms 200 application/json;charset=utf-8
+2021-04-03 10:11:30.709 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:11:30.758 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:11:30.758 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:11:30.760 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:11:30.798 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:11:30.931 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:41:30.9310000Z"
+2021-04-03 10:11:30.992 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:41:30.9910000Z"
+2021-04-03 10:11:31.003 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:41:31.0030000Z"
+2021-04-03 10:11:31.037 +05:30 [INF] Connection string process started
+2021-04-03 10:11:33.069 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:41:33.0690000Z"
+2021-04-03 10:11:33.263 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:41:33.2630000Z"
+2021-04-03 10:11:33.504 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:41:33.5040000Z"
+2021-04-03 10:11:33.508 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 10:11:33.521 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 2716.2319ms
+2021-04-03 10:11:33.522 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:11:33.522 +05:30 [INF] Request finished in 2815.7382ms 200 application/json; charset=utf-8
+2021-04-03 10:11:47.745 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:11:47.758 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:11:47.759 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:11:47.778 +05:30 [INF] Authorization failed.
+2021-04-03 10:11:47.791 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2021-04-03 10:11:47.809 +05:30 [INF] Request finished in 85.5115ms 401 
+2021-04-03 10:11:47.913 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:11:47.914 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:11:47.914 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:11:47.918 +05:30 [INF] Authorization was successful.
+2021-04-03 10:11:47.918 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:11:47.921 +05:30 [INF] Route matched with {action = "EstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 10:11:47.929 +05:30 [INF] EstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T04:41:47.9290000Z"
+2021-04-03 10:11:47.930 +05:30 [INF] GetByCustom method of EstimationLogsService started in Business at :	"2021-04-03T04:41:47.9300000Z"
+2021-04-03 10:11:47.952 +05:30 [INF] GetByCustom method of EstimationLogDataService started in DataAccess at :	"2021-04-03T04:41:47.9520000Z"
+2021-04-03 10:11:48.081 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 38 occurred in GetByCustom method of EstimationLogDataService in DataAcess at :	"2021-04-03T04:41:48.0250000Z"
+2021-04-03 10:11:48.120 +05:30 [INF] GetByCustom method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T04:41:48.1190000Z"
+2021-04-03 10:11:48.121 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 46
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 46 occurred in GetByCustom method of EstimationLogsService in Business at :	"2021-04-03T04:41:48.1200000Z"
+2021-04-03 10:11:48.161 +05:30 [INF] GetByCustom method of EstimationLogsService ended in Business at :	"2021-04-03T04:41:48.1610000Z"
+2021-04-03 10:11:48.163 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 53
+   at Store.Api.Controllers.EstimationLogsController.EstimationLogs(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Controllers\EstimationLogsController.cs:line 50 occurred in EstimationLogs method of EstimationLogsController in Api at :	"2021-04-03T04:41:48.1620000Z"
+2021-04-03 10:11:48.163 +05:30 [INF] EstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T04:41:48.1630000Z"
+2021-04-03 10:11:48.164 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2021-04-03 10:11:48.165 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api) in 244.0095ms
+2021-04-03 10:11:48.166 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:11:48.166 +05:30 [INF] Request finished in 253.1799ms 404 application/problem+json; charset=utf-8
+2021-04-03 10:11:53.512 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:11:53.514 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:11:53.514 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:11:53.515 +05:30 [INF] Authorization was successful.
+2021-04-03 10:11:53.515 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:11:53.516 +05:30 [INF] Route matched with {action = "EstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 10:11:53.519 +05:30 [INF] EstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T04:41:53.5190000Z"
+2021-04-03 10:11:53.519 +05:30 [INF] GetByCustom method of EstimationLogsService started in Business at :	"2021-04-03T04:41:53.5190000Z"
+2021-04-03 10:11:53.536 +05:30 [INF] GetByCustom method of EstimationLogDataService started in DataAccess at :	"2021-04-03T04:41:53.5350000Z"
+2021-04-03 10:11:53.640 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 38 occurred in GetByCustom method of EstimationLogDataService in DataAcess at :	"2021-04-03T04:41:53.6400000Z"
+2021-04-03 10:11:53.682 +05:30 [INF] GetByCustom method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T04:41:53.6820000Z"
+2021-04-03 10:11:53.683 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 46
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 46 occurred in GetByCustom method of EstimationLogsService in Business at :	"2021-04-03T04:41:53.6820000Z"
+2021-04-03 10:11:53.727 +05:30 [INF] GetByCustom method of EstimationLogsService ended in Business at :	"2021-04-03T04:41:53.7270000Z"
+2021-04-03 10:11:53.727 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 53
+   at Store.Api.Controllers.EstimationLogsController.EstimationLogs(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Controllers\EstimationLogsController.cs:line 50 occurred in EstimationLogs method of EstimationLogsController in Api at :	"2021-04-03T04:41:53.7270000Z"
+2021-04-03 10:11:53.728 +05:30 [INF] EstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T04:41:53.7280000Z"
+2021-04-03 10:11:53.728 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2021-04-03 10:11:53.729 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api) in 212.6334ms
+2021-04-03 10:11:53.729 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:11:53.729 +05:30 [INF] Request finished in 217.4745ms 404 application/problem+json; charset=utf-8
+2021-04-03 10:12:21.989 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:12:21.992 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:12:21.992 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:12:21.993 +05:30 [INF] Authorization was successful.
+2021-04-03 10:12:21.994 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:12:21.995 +05:30 [INF] Route matched with {action = "EstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 10:12:25.763 +05:30 [INF] EstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T04:42:25.7370000Z"
+2021-04-03 10:12:28.390 +05:30 [INF] GetByCustom method of EstimationLogsService started in Business at :	"2021-04-03T04:42:28.3680000Z"
+2021-04-03 10:12:36.990 +05:30 [INF] GetByCustom method of EstimationLogDataService started in DataAccess at :	"2021-04-03T04:42:36.9710000Z"
+2021-04-03 10:12:52.390 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 38 occurred in GetByCustom method of EstimationLogDataService in DataAcess at :	"2021-04-03T04:42:52.3890000Z"
+2021-04-03 10:12:52.431 +05:30 [INF] GetByCustom method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T04:42:52.4310000Z"
+2021-04-03 10:12:52.432 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.DataAccess.Implementations.EstimationLogsDataService.Insert(EstimationLogs entity) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.DataAccess\Implementations\EstimationLogsDataService.cs:line 46
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 46 occurred in GetByCustom method of EstimationLogsService in Business at :	"2021-04-03T04:42:52.4320000Z"
+2021-04-03 10:12:52.471 +05:30 [INF] GetByCustom method of EstimationLogsService ended in Business at :	"2021-04-03T04:42:52.4710000Z"
+2021-04-03 10:12:52.471 +05:30 [ERR] System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'StoreContext'.
+   at Store.Business.Implementation.EstimationLogsService.Insert(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Business\Implementation\EstimationLogsService.cs:line 53
+   at Store.Api.Controllers.EstimationLogsController.EstimationLogs(EstimationLogsModel model) in C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api\Controllers\EstimationLogsController.cs:line 50 occurred in EstimationLogs method of EstimationLogsController in Api at :	"2021-04-03T04:42:52.4710000Z"
+2021-04-03 10:12:52.471 +05:30 [INF] EstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T04:42:52.4710000Z"
+2021-04-03 10:12:52.472 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2021-04-03 10:12:52.473 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api) in 30475.8422ms
+2021-04-03 10:12:52.474 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:12:52.483 +05:30 [INF] Request finished in 30492.1128ms 404 application/problem+json; charset=utf-8
+2021-04-03 10:13:34.290 +05:30 [INF] Application Starting.
+2021-04-03 10:13:35.590 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 10:13:35.920 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 10:13:35.921 +05:30 [INF] Hosting environment: Development
+2021-04-03 10:13:35.921 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 10:13:35.992 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 10:13:36.183 +05:30 [INF] Request finished in 196.3677ms 200 text/html;charset=utf-8
+2021-04-03 10:13:36.269 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 10:13:36.317 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 10:13:36.326 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 10:13:36.407 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 10:13:36.407 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 10:13:36.407 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 10:13:36.410 +05:30 [INF] Request finished in 140.152ms 200 text/css
+2021-04-03 10:13:36.410 +05:30 [INF] Request finished in 82.7933ms 200 application/javascript
+2021-04-03 10:13:36.410 +05:30 [INF] Request finished in 92.2701ms 200 application/javascript
+2021-04-03 10:13:36.909 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 10:13:37.092 +05:30 [INF] Request finished in 183.8207ms 200 application/json;charset=utf-8
+2021-04-03 10:13:50.525 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 10:13:50.581 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:13:50.581 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:13:50.586 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:13:50.626 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 10:13:50.725 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T04:43:50.7250000Z"
+2021-04-03 10:13:50.738 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T04:43:50.7380000Z"
+2021-04-03 10:13:50.750 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T04:43:50.7500000Z"
+2021-04-03 10:13:50.766 +05:30 [INF] Connection string process started
+2021-04-03 10:13:53.070 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T04:43:53.0700000Z"
+2021-04-03 10:13:53.243 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T04:43:53.2430000Z"
+2021-04-03 10:13:53.419 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T04:43:53.4190000Z"
+2021-04-03 10:13:53.422 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 10:13:53.438 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 2804.753ms
+2021-04-03 10:13:53.438 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 10:13:53.438 +05:30 [INF] Request finished in 2917.5987ms 200 application/json; charset=utf-8
+2021-04-03 10:14:32.180 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:14:32.222 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:14:32.223 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:14:32.232 +05:30 [INF] Authorization failed.
+2021-04-03 10:14:32.237 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2021-04-03 10:14:32.241 +05:30 [INF] Request finished in 63.0148ms 401 
+2021-04-03 10:14:32.294 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 10:14:32.295 +05:30 [INF] CORS policy execution failed.
+2021-04-03 10:14:32.295 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 10:14:32.297 +05:30 [INF] Authorization was successful.
+2021-04-03 10:14:32.297 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:14:32.302 +05:30 [INF] Route matched with {action = "EstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 10:14:41.000 +05:30 [INF] EstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T04:44:40.9800000Z"
+2021-04-03 10:14:48.226 +05:30 [INF] GetByCustom method of EstimationLogsService started in Business at :	"2021-04-03T04:44:48.2050000Z"
+2021-04-03 10:14:53.726 +05:30 [INF] GetByCustom method of EstimationLogDataService started in DataAccess at :	"2021-04-03T04:44:53.7060000Z"
+2021-04-03 10:14:55.500 +05:30 [INF] Connection string process started
+2021-04-03 10:15:00.194 +05:30 [INF] GetByCustom method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T04:45:00.1930000Z"
+2021-04-03 10:15:00.194 +05:30 [INF] GetByCustom method of EstimationLogsService ended in Business at :	"2021-04-03T04:45:00.1940000Z"
+2021-04-03 10:15:00.194 +05:30 [INF] EstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T04:45:00.1940000Z"
+2021-04-03 10:15:00.194 +05:30 [INF] EstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T04:45:00.1940000Z"
+2021-04-03 10:15:00.198 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 10:15:00.201 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api) in 27897.346ms
+2021-04-03 10:15:00.203 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.EstimationLogs (Store.Api)'
+2021-04-03 10:15:00.209 +05:30 [INF] Request finished in 27913.3032ms 200 application/json; charset=utf-8
+2021-04-03 11:14:44.499 +05:30 [INF] Application Starting.
+2021-04-03 11:14:52.347 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 11:14:52.953 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 11:14:52.954 +05:30 [INF] Hosting environment: Development
+2021-04-03 11:14:52.954 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 11:14:53.062 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 11:14:53.434 +05:30 [INF] Request finished in 376.0595ms 200 text/html;charset=utf-8
+2021-04-03 11:14:53.486 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 11:14:53.557 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 11:14:53.560 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 11:14:53.630 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 11:14:53.630 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 11:14:53.632 +05:30 [INF] Request finished in 146.5225ms 200 text/css
+2021-04-03 11:14:53.632 +05:30 [INF] Request finished in 71.6843ms 200 application/javascript
+2021-04-03 11:14:53.634 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 11:14:53.634 +05:30 [INF] Request finished in 77.2671ms 200 application/javascript
+2021-04-03 11:14:54.168 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 11:14:54.309 +05:30 [INF] Request finished in 141.2403ms 200 application/json;charset=utf-8
+2021-04-03 11:15:11.514 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/Authenticate application/json 257
+2021-04-03 11:15:11.563 +05:30 [INF] CORS policy execution failed.
+2021-04-03 11:15:11.563 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 11:15:11.567 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 11:15:11.612 +05:30 [INF] Route matched with {action = "AuthenticateUser", controller = "Authenticate"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AuthenticateUser(Store.Core.ViewEntity.AppUserModel) on controller Store.Api.Controllers.AuthenticateController (Store.Api).
+2021-04-03 11:15:11.723 +05:30 [INF] AuthenticateUser method of AuthenticateUserController started in Api at :	"2021-04-03T05:45:11.7230000Z"
+2021-04-03 11:15:11.747 +05:30 [INF] GetByCustom method of AppUserService started in Business at :	"2021-04-03T05:45:11.7470000Z"
+2021-04-03 11:15:11.766 +05:30 [INF] GetByCustom method of AppUserDataService started in DataAccess at :	"2021-04-03T05:45:11.7660000Z"
+2021-04-03 11:15:11.815 +05:30 [INF] Connection string process started
+2021-04-03 11:15:13.870 +05:30 [INF] GetByCustom method of AppUserDataService ended in DataAccess at :	"2021-04-03T05:45:13.8700000Z"
+2021-04-03 11:15:14.079 +05:30 [INF] GetByCustom method of AppUserService ended in Business at :	"2021-04-03T05:45:14.0790000Z"
+2021-04-03 11:15:14.331 +05:30 [INF] AuthenticateUser method of AuthenticateUserController ended in Api at :	"2021-04-03T05:45:14.3310000Z"
+2021-04-03 11:15:14.336 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.AppUserModel'.
+2021-04-03 11:15:14.354 +05:30 [INF] Executed action Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api) in 2733.8378ms
+2021-04-03 11:15:14.354 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.AuthenticateController.AuthenticateUser (Store.Api)'
+2021-04-03 11:15:14.355 +05:30 [INF] Request finished in 2842.9349ms 200 application/json; charset=utf-8
+2021-04-03 11:15:28.335 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 11:15:28.338 +05:30 [INF] CORS policy execution failed.
+2021-04-03 11:15:28.338 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 11:15:28.345 +05:30 [INF] Authorization failed.
+2021-04-03 11:15:28.350 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2021-04-03 11:15:28.416 +05:30 [INF] Request finished in 81.6742ms 401 
+2021-04-03 11:15:28.495 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/EstimationLogs application/json 163
+2021-04-03 11:15:28.496 +05:30 [INF] CORS policy execution failed.
+2021-04-03 11:15:28.496 +05:30 [INF] Request origin https://localhost:44379 does not have permission to access the resource.
+2021-04-03 11:15:28.499 +05:30 [INF] Authorization was successful.
+2021-04-03 11:15:28.499 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:15:28.503 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:15:33.053 +05:30 [INF] AddEstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T05:45:33.0530000Z"
+2021-04-03 11:15:33.055 +05:30 [INF] Insert method of EstimationLogsService started in Business at :	"2021-04-03T05:45:33.0550000Z"
+2021-04-03 11:15:33.077 +05:30 [INF] Insert method of EstimationLogDataService started in DataAccess at :	"2021-04-03T05:45:33.0770000Z"
+2021-04-03 11:15:33.078 +05:30 [INF] Connection string process started
+2021-04-03 11:15:33.300 +05:30 [INF] Insert method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T05:45:33.3000000Z"
+2021-04-03 11:15:33.301 +05:30 [INF] Insert method of EstimationLogsService ended in Business at :	"2021-04-03T05:45:33.3010000Z"
+2021-04-03 11:15:33.301 +05:30 [INF] AddEstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T05:45:33.3010000Z"
+2021-04-03 11:15:33.301 +05:30 [INF] AddEstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T05:45:33.3010000Z"
+2021-04-03 11:15:33.301 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 11:15:33.304 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api) in 4800.5448ms
+2021-04-03 11:15:33.304 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:15:33.304 +05:30 [INF] Request finished in 4808.9197ms 200 application/json; charset=utf-8
+2021-04-03 11:20:05.247 +05:30 [INF] Application Starting.
+2021-04-03 11:20:15.371 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 11:20:16.378 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 11:20:16.379 +05:30 [INF] Hosting environment: Development
+2021-04-03 11:20:16.379 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 11:20:16.507 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 11:20:17.028 +05:30 [INF] Request finished in 528.7933ms 200 text/html;charset=utf-8
+2021-04-03 11:20:17.172 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 11:20:17.242 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 11:20:17.256 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 11:20:17.297 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 11:20:17.298 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 11:20:17.299 +05:30 [INF] Request finished in 43.0866ms 200 application/javascript
+2021-04-03 11:20:17.299 +05:30 [INF] Request finished in 127.2182ms 200 text/css
+2021-04-03 11:20:17.301 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 11:20:17.303 +05:30 [INF] Request finished in 60.3049ms 200 application/javascript
+2021-04-03 11:20:18.088 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 11:20:18.210 +05:30 [INF] Request finished in 122.0271ms 200 application/json;charset=utf-8
+2021-04-03 11:23:31.063 +05:30 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:44379/api/entity/estimationLogs  
+2021-04-03 11:23:31.107 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:23:31.111 +05:30 [INF] Request finished in 48.4955ms 204 
+2021-04-03 11:23:31.116 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/estimationLogs application/json 75
+2021-04-03 11:23:31.389 +05:30 [INF] Successfully validated the token.
+2021-04-03 11:23:31.392 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:23:31.398 +05:30 [INF] Authorization was successful.
+2021-04-03 11:23:31.398 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:23:31.441 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:23:31.566 +05:30 [INF] AddEstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T05:53:31.5650000Z"
+2021-04-03 11:23:31.596 +05:30 [INF] Insert method of EstimationLogsService started in Business at :	"2021-04-03T05:53:31.5960000Z"
+2021-04-03 11:23:31.863 +05:30 [INF] Insert method of EstimationLogDataService started in DataAccess at :	"2021-04-03T05:53:31.8630000Z"
+2021-04-03 11:23:31.891 +05:30 [INF] Connection string process started
+2021-04-03 11:23:33.402 +05:30 [INF] Insert method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T05:53:33.4020000Z"
+2021-04-03 11:23:33.403 +05:30 [INF] Insert method of EstimationLogsService ended in Business at :	"2021-04-03T05:53:33.4030000Z"
+2021-04-03 11:23:33.403 +05:30 [INF] AddEstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T05:53:33.4030000Z"
+2021-04-03 11:23:33.403 +05:30 [INF] AddEstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T05:53:33.4030000Z"
+2021-04-03 11:23:33.407 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 11:23:33.424 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api) in 1978.0562ms
+2021-04-03 11:23:33.425 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:23:33.426 +05:30 [INF] Request finished in 2311.7733ms 200 application/json; charset=utf-8
+2021-04-03 11:24:21.649 +05:30 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:44379/api/entity/estimationLogs  
+2021-04-03 11:24:21.655 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:24:21.656 +05:30 [INF] Request finished in 7.515ms 204 
+2021-04-03 11:24:21.658 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/estimationLogs application/json 81
+2021-04-03 11:24:21.659 +05:30 [INF] Successfully validated the token.
+2021-04-03 11:24:21.659 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:24:21.664 +05:30 [INF] Authorization was successful.
+2021-04-03 11:24:21.664 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:24:21.665 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:24:21.670 +05:30 [INF] AddEstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T05:54:21.6700000Z"
+2021-04-03 11:24:21.670 +05:30 [INF] Insert method of EstimationLogsService started in Business at :	"2021-04-03T05:54:21.6700000Z"
+2021-04-03 11:24:21.681 +05:30 [INF] Insert method of EstimationLogDataService started in DataAccess at :	"2021-04-03T05:54:21.6810000Z"
+2021-04-03 11:24:21.681 +05:30 [INF] Connection string process started
+2021-04-03 11:24:21.738 +05:30 [INF] Insert method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T05:54:21.7380000Z"
+2021-04-03 11:24:21.738 +05:30 [INF] Insert method of EstimationLogsService ended in Business at :	"2021-04-03T05:54:21.7380000Z"
+2021-04-03 11:24:21.738 +05:30 [INF] AddEstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T05:54:21.7380000Z"
+2021-04-03 11:24:21.738 +05:30 [INF] AddEstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T05:54:21.7380000Z"
+2021-04-03 11:24:21.739 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 11:24:21.740 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api) in 74.7721ms
+2021-04-03 11:24:21.740 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:24:21.740 +05:30 [INF] Request finished in 82.7035ms 200 application/json; charset=utf-8
+2021-04-03 11:25:58.555 +05:30 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:44379/api/entity/estimationLogs  
+2021-04-03 11:25:58.558 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:25:58.565 +05:30 [INF] Request finished in 9.8271ms 204 
+2021-04-03 11:25:58.577 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/estimationLogs application/json 81
+2021-04-03 11:25:58.581 +05:30 [INF] Successfully validated the token.
+2021-04-03 11:25:58.582 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:25:58.583 +05:30 [INF] Authorization was successful.
+2021-04-03 11:25:58.583 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:25:58.584 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:26:25.746 +05:30 [INF] AddEstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T05:56:25.7460000Z"
+2021-04-03 11:26:25.746 +05:30 [INF] Insert method of EstimationLogsService started in Business at :	"2021-04-03T05:56:25.7460000Z"
+2021-04-03 11:26:25.756 +05:30 [INF] Insert method of EstimationLogDataService started in DataAccess at :	"2021-04-03T05:56:25.7560000Z"
+2021-04-03 11:26:25.757 +05:30 [INF] Connection string process started
+2021-04-03 11:26:25.787 +05:30 [INF] Insert method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T05:56:25.7870000Z"
+2021-04-03 11:26:25.787 +05:30 [INF] Insert method of EstimationLogsService ended in Business at :	"2021-04-03T05:56:25.7870000Z"
+2021-04-03 11:26:25.787 +05:30 [INF] AddEstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T05:56:25.7870000Z"
+2021-04-03 11:26:25.787 +05:30 [INF] AddEstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T05:56:25.7870000Z"
+2021-04-03 11:26:25.787 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 11:26:25.789 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api) in 27202.4321ms
+2021-04-03 11:26:25.792 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:26:25.793 +05:30 [INF] Request finished in 27215.4808ms 200 application/json; charset=utf-8
+2021-04-03 11:26:40.779 +05:30 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:44379/api/entity/estimationLogs  
+2021-04-03 11:26:40.780 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:26:40.781 +05:30 [INF] Request finished in 1.7295ms 204 
+2021-04-03 11:26:40.794 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/estimationLogs application/json 81
+2021-04-03 11:26:40.795 +05:30 [INF] Successfully validated the token.
+2021-04-03 11:26:40.795 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:26:40.795 +05:30 [INF] Authorization was successful.
+2021-04-03 11:26:40.795 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:26:40.796 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:27:13.648 +05:30 [INF] Application Starting.
+2021-04-03 11:27:15.093 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 11:27:15.483 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 11:27:15.483 +05:30 [INF] Hosting environment: Development
+2021-04-03 11:27:15.483 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 11:27:15.558 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 11:27:15.764 +05:30 [INF] Request finished in 208.4035ms 200 text/html;charset=utf-8
+2021-04-03 11:27:15.815 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 11:27:15.845 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 11:27:15.848 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 11:27:15.883 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 11:27:15.883 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 11:27:15.883 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 11:27:15.885 +05:30 [INF] Request finished in 70.0319ms 200 text/css
+2021-04-03 11:27:15.885 +05:30 [INF] Request finished in 39.8175ms 200 application/javascript
+2021-04-03 11:27:15.885 +05:30 [INF] Request finished in 36.6361ms 200 application/javascript
+2021-04-03 11:27:16.298 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 11:27:16.432 +05:30 [INF] Request finished in 134.9494ms 200 application/json;charset=utf-8
+2021-04-03 11:27:54.703 +05:30 [INF] Request starting HTTP/1.1 OPTIONS https://localhost:44379/api/entity/estimationLogs  
+2021-04-03 11:27:54.754 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:27:54.765 +05:30 [INF] Request finished in 62.4639ms 204 
+2021-04-03 11:27:54.773 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/entity/estimationLogs application/json 83
+2021-04-03 11:27:55.153 +05:30 [INF] Successfully validated the token.
+2021-04-03 11:27:55.155 +05:30 [INF] CORS policy execution successful.
+2021-04-03 11:27:55.161 +05:30 [INF] Authorization was successful.
+2021-04-03 11:27:55.162 +05:30 [INF] Executing endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:27:55.205 +05:30 [INF] Route matched with {action = "AddEstimationLogs", controller = "EstimationLogs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEstimationLogs(Store.Core.ViewEntity.EstimationLogsModel) on controller Store.Api.Controllers.EstimationLogsController (Store.Api).
+2021-04-03 11:28:06.323 +05:30 [INF] AddEstimationLogs method of EstimationLogsController started in Api at :	"2021-04-03T05:58:06.3230000Z"
+2021-04-03 11:28:06.351 +05:30 [INF] Insert method of EstimationLogsService started in Business at :	"2021-04-03T05:58:06.3510000Z"
+2021-04-03 11:28:06.520 +05:30 [INF] Insert method of EstimationLogDataService started in DataAccess at :	"2021-04-03T05:58:06.5200000Z"
+2021-04-03 11:28:06.535 +05:30 [INF] Connection string process started
+2021-04-03 11:28:07.988 +05:30 [INF] Insert method of EstimationLogDataService ended in DataAccess at :	"2021-04-03T05:58:07.9880000Z"
+2021-04-03 11:28:07.988 +05:30 [INF] Insert method of EstimationLogsService ended in Business at :	"2021-04-03T05:58:07.9880000Z"
+2021-04-03 11:28:07.988 +05:30 [INF] AddEstimationLogs method of EstimationLogsController is Successfull in Api at :	"2021-04-03T05:58:07.9880000Z"
+2021-04-03 11:28:07.989 +05:30 [INF] AddEstimationLogs method of EstimationLogsController ended in Api at :	"2021-04-03T05:58:07.9890000Z"
+2021-04-03 11:28:07.992 +05:30 [INF] Executing ObjectResult, writing value of type 'Store.Core.ViewEntity.EstimationLogsModel'.
+2021-04-03 11:28:08.010 +05:30 [INF] Executed action Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api) in 12799.4187ms
+2021-04-03 11:28:08.010 +05:30 [INF] Executed endpoint 'Store.Api.Controllers.EstimationLogsController.AddEstimationLogs (Store.Api)'
+2021-04-03 11:28:08.011 +05:30 [INF] Request finished in 13242.8445ms 200 application/json; charset=utf-8
+2021-04-03 11:28:55.749 +05:30 [INF] Application Starting.
+2021-04-03 11:28:57.041 +05:30 [INF] User profile is available. Using 'C:\Users\vermaa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-03 11:28:57.394 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-03 11:28:57.395 +05:30 [INF] Hosting environment: Development
+2021-04-03 11:28:57.395 +05:30 [INF] Content root path: C:\Users\vermaa\source\repos\Siemens\Code\backend\src\Store.Api
+2021-04-03 11:28:57.458 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/index.html  
+2021-04-03 11:28:57.652 +05:30 [INF] Request finished in 195.5599ms 200 text/html;charset=utf-8
+2021-04-03 11:28:57.708 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-standalone-preset.js  
+2021-04-03 11:28:57.730 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui.css  
+2021-04-03 11:28:57.740 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger-ui-bundle.js  
+2021-04-03 11:28:57.788 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-04-03 11:28:57.788 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-04-03 11:28:57.788 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-04-03 11:28:57.790 +05:30 [INF] Request finished in 60.0173ms 200 text/css
+2021-04-03 11:28:57.790 +05:30 [INF] Request finished in 49.4673ms 200 application/javascript
+2021-04-03 11:28:57.790 +05:30 [INF] Request finished in 81.5495ms 200 application/javascript
+2021-04-03 11:28:58.173 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:44379/Swagger/v1/Swagger.json  
+2021-04-03 11:28:58.283 +05:30 [INF] Request finished in 110.5234ms 200 application/json;charset=utf-8

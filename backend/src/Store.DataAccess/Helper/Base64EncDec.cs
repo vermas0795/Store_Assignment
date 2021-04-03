@@ -5,7 +5,7 @@ namespace Store.DataAccess.Helper
 {
     public static class Base64EncDec
     {
-        //this function Convert to Encode your Password 
+        //this function helps to Encode your Password 
         public static string EncodePasswordToBase64(string password)
         {
             try
@@ -20,7 +20,7 @@ namespace Store.DataAccess.Helper
                 throw new Exception("Error in base64Encode" + ex.Message);
             }
         }
-        //this function Convert to Decode your Password
+        //this function helps to Decode your Password
         public static string DecodeFrom64(string encodedData)
         {
             UTF8Encoding encoder = new UTF8Encoding();
