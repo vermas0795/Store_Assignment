@@ -30,11 +30,10 @@ After setup of all the required softwares and runtime. You need to first run the
 1. Backend: Visual studio will restore automatically, but if not please run 'dotnet restore' in the root of backend folder where "Store.Api" soln file is avialable.
 2. Frontend: Please run 'npm install' to add all dependencies in local before you run the "ng serve" to the frontend solution.
 
-Once backend is up, please notice the URL and cross check in frontend appsettings.js file avilable under path 'frontend\src\appsettings.js'
-Once frontend is up, you will be able to see the login screen and you can login using below credentials:
+Once backend is up (https://localhost:44379/), please notice the URL and cross check in frontend appsettings.js file avilable under path 'frontend\src\appsettings.js' 
+Once frontend is up (http://localhost:4200), you will be able to see the login screen and you can login using below credentials:
 
 | Type| Login-Name | Password |
-| :- | - |
 | **Privileged User** |  verma_0795| Password|
 | **Normal User** |  vermas0795| Password|
 
