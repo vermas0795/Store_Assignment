@@ -1,17 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
-using Store.DataAccess.Helper;
 using Store.DataAccess.Repository.DBConf;
 using Store.DataAccess.Repository.Entities;
 using System;
-using System.Linq;
 
 namespace Store.DataAccess.Implementations
 {
     public class EstimationLogsDataService : DBRepositoryBase<EstimationLogs>
     {
         private readonly ILogger<EstimationLogsDataService> _log;
-        private readonly IAccessConnectionString _connection;
-        private readonly ILogger<StoreContext> _logContext;
         private StoreContext _context;
 
         /// <summary>

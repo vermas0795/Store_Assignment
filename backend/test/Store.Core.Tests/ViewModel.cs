@@ -11,7 +11,7 @@ namespace Store.Core.Tests
             Contact = string.Empty,
             UserName= "Test UserName",
             LoginName= "Test LoginName",
-            Discount= 0.0m,
+            Discount= 0.0d,
             EmailId= "Test Email",
             Role="Test Role",
             CreatedDate = DateTime.UtcNow,
@@ -24,9 +24,9 @@ namespace Store.Core.Tests
         {
             Id = 1,
             AppUserId=1,
-            PricePerGram= 1.0m,
-            TotalPrice=1.1m,
-            Weight=1.0m,
+            PricePerGram= 1.0d,
+            TotalPrice=1.1d,
+            Weight=1.0d,
             CreatedDate = DateTime.UtcNow,
             UpdatedDate = DateTime.UtcNow,
             IsActive = true

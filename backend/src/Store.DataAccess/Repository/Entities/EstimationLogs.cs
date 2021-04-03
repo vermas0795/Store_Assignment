@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Store.DataAccess.Repository.Entities
 {
@@ -7,10 +6,10 @@ namespace Store.DataAccess.Repository.Entities
     {
         public long Id { get; set; }
         public long AppUserId { get; set; }
-        public decimal Discount { get; set; }
-        public decimal PricePerGram { get; set; }
-        public decimal Weight { get; set; }
-        public decimal TotalPrice { get; set; }
+        public double Discount { get; set; }
+        public double PricePerGram { get; set; }
+        public double Weight { get; set; }
+        public double TotalPrice { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public bool IsActive { get; set; }

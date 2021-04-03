@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.DataAccess.Repository.DBConf;
 
@@ -19,12 +17,13 @@ namespace Store.DataAccess.Repository.Entities
             : base(options)
         {
         }
-
         public StoreContext(IAccessConnectionString accessConnectionString, ILogger<StoreContext> log)
         {
             _accessConnectionString = accessConnectionString;
             _log = log;
         }
+
+
         public virtual DbSet<AppRole> AppRole { get; set; }
         public virtual DbSet<AppUser> AppUser { get; set; }
         public virtual DbSet<EstimationLogs> EstimationLogs { get; set; }
@@ -33,11 +32,13 @@ namespace Store.DataAccess.Repository.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                _log.LogInformation("Connection string process started");
-
+                _log.LogInformation("Database Connection  Started");
                 var database = _accessConnectionString.ComposeDbConnection();
 
-                optionsBuilder.UseSqlServer(database);
+                _log.LogInformation("Database Connection In Progress");
+
+                optionsBuilder.UseSqlServer(@database);
+                _log.LogInformation("Database Connection Established");
             }
         }
 
@@ -53,19 +54,17 @@ namespace Store.DataAccess.Repository.Entities
 
                 entity.Property(e => e.Description).HasMaxLength(300);
 
-                entity.Property(e => e.Discount).HasColumnType("decimal(18, 0)");
-
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<AppUser>(entity =>
             {
                 entity.HasIndex(e => e.EmailId)
-                    .HasName("UQ__AppUser__7ED91ACE907816B3")
+                    .HasName("UQ__AppUser__7ED91ACEA99B71C9")
                     .IsUnique();
 
                 entity.HasIndex(e => e.LoginName)
-                    .HasName("UQ__AppUser__DB8464FF74FCE30B")
+                    .HasName("UQ__AppUser__DB8464FFEB94ED5C")
                     .IsUnique();
 
                 entity.Property(e => e.Contact).HasMaxLength(15);
@@ -101,15 +100,7 @@ namespace Store.DataAccess.Repository.Entities
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Discount).HasColumnType("decimal(18, 0)");
-
-                entity.Property(e => e.PricePerGram).HasColumnType("decimal(18, 0)");
-
-                entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 0)");
-
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Weight).HasColumnType("decimal(18, 0)");
 
                 entity.HasOne(d => d.AppUser)
                     .WithMany(p => p.EstimationLogs)
